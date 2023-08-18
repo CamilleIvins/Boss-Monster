@@ -24,10 +24,10 @@ const boss = {
 let killCount = 0
 let gold = 0
 
-function slateAttack() {
-    let attack = heroes.find(hero => hero.damage == 5)
+// function slateAttack() {
+//     let attack = heroes.find(hero => hero.damage == 5)
 
-}
+// }
 
 function attackCombo() {
     // find heroes damage
@@ -84,14 +84,18 @@ function bossKilled() {
 function lootDay() {
     let purse = 0
     debugger
-    purse += (boss.loot)
+    if (boss.health <= 0) {
+        boss.health = 0
+        purse = (boss.loot)
+    }
     gold += purse
+
     console.log(purse)
 
-    document.getElementById('gold').innerText = killCount.toString()
+    document.getElementById('gold').innerText = gold.toString()
 
 
-    console.log(purse, gold)
+    // console.log(purse, gold)
 }
 
 
@@ -103,5 +107,5 @@ function lvlBoss() {
     boss.loot = (boss.loot * 1.7).toFixed(2)
 }
 setInterval(attackCombo, 1000)
-setInterval(retaliation, 1000)
+setInterval(retaliation, 5000)
 //
