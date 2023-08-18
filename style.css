@@ -1,0 +1,29 @@
+:root {
+    --hero-bg: rgba(194, 226, 255, 0.733);
+    --boss-bg: rgba(234, 105, 114, 0.733);
+    --shop-bg: rgb(188, 189, 190);
+
+}
+
+.bg-img {
+    opacity: 70%;
+    object-fit: cover;
+}
+
+.boss-card {
+    background-color: var(--boss-bg);
+    height: 50vh;
+}
+
+.mdi-ghost-outline {
+    font-size: 150px;
+}
+
+.hero-card {
+    background-color: var(--hero-bg);
+
+}
+
+.shop {
+    background-color: var(--shop-bg);
+}

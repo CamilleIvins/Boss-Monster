@@ -42,11 +42,11 @@
         <section class="row">
             <!-- *NOTE - this will be drawn from js after, because you will add players to DOM -->
             <div class="hero-card col-3">
-                <div id="Slate">
+                <div onclick="healHero('Slate Slabrock')">
                     🦖
                 </div>
-                <p>
-                    name
+                <p id="Slate SlabrockStats">
+                    Slate Slabrock
                 </p>
                 <p>
                     Kill Count: <span id="kills">0</span>
@@ -54,11 +54,11 @@
             </div>
 
             <div class="hero-card col-3">
-                <div class="Flint">
+                <div class="Flint" onclick="healHero('Flint Ironstag')">
                     🦖
                 </div>
                 <p>
-                    name
+                    Flint Ironstag
                 </p>
                 <p>
                     Gold: $<span id="gold">0</span>
@@ -71,15 +71,21 @@
 
         <!-- *SECTION - monster territory -->
         <section class="row justify-content-center">
-            <div class="hero-card col-6">
-                <div onclick="attackCombo(), retaliation()" id="Boss">
-                    🦖
-                </div>
-                <p>
-                    Draw stats here via interpolation
-                </p>
-                <div id="level-boss">
-
+            <img class="col-md-6 col-12 bg-img boss-card px-0 position-relative"
+                src="https://images.unsplash.com/photo-1634445517686-8ee1165434d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=465&q=80">
+            <div class="position-absolute col-md-6 col-12 text-center px-0">
+                <!-- <marquee behavior="alternate" class="marquee1" direction="down"> -->
+                <marquee behavior="alternate" class="marquee2">
+                    <div onclick="attackCombo(), retaliation()">
+                        <i class="mdi mdi-ghost-outline"></i>
+                    </div>
+                </marquee>
+                <!-- </marquee> -->
+                </img>
+                <div class=" text-center px-0">
+                    <p id="bossStats">
+                        Health | Damage | Level
+                    </p>
                 </div>
             </div>
 
@@ -91,7 +97,7 @@
     <footer class="container-fluid">
         <!-- *SECTION - shop, reset -->
 
-        <div class="hero-card col-4">
+        <div class="shop col-4">
             <div>
                 🦖
             </div>

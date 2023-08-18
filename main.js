@@ -47,9 +47,10 @@ function attackCombo() {
     if (boss.health <= 0) {
         boss.health = 0
         bossKilled()
-        lootDay()
+        // lootDay()
         lvlBoss()
     }
+    updateBoss()
     // for (let i = 0; i <= heroes.length; i++) {
     //     console.log(i)
     // }
@@ -66,6 +67,26 @@ function retaliation() {
     heroes[0].health = (heroes[0].health - bossDamage).toFixed(2)
     heroes[1].health = (heroes[1].health - bossDamage).toFixed(2)
     console.log(slateHealth, flintHealth)
+    updateHeroes()
+}
+
+function updateHeroes(hero) {
+    // let letBossElem = document.getElementById('bossStats')
+    // let marquee1 = letBossElem.querySelector('.marquee1')
+    // let marquee2 = letBossElem.querySelector('.marquee2')
+    debugger
+    let heroStatsElem = document.getElementById(`${hero.name}Stats`)
+    heroStatsElem.innerText = `${hero.name}
+    <p>Health: ${(hero.health).toFixed(0)} </p>
+    <p>Damage: ${(hero.damage).toFixed(0)} </p> <p>Level ${hero.level} </p>`
+}
+function updateBoss() {
+    // let letBossElem = document.getElementById('bossStats')
+    // let marquee1 = letBossElem.querySelector('.marquee1')
+    // let marquee2 = letBossElem.querySelector('.marquee2')
+
+    let bossStatsElem = document.getElementById('bossStats')
+    bossStatsElem.innerText = `Health: ${(boss.health).toFixed(0)} | Damage: ${(boss.damage).toFixed(0)} | Level ${boss.level}`
 }
 
 function bossKilled() {
@@ -74,29 +95,45 @@ function bossKilled() {
     if (boss.health <= 0) {
         boss.health = 0
         killCount++
+        gold += boss.loot
     }
+
     killCount += kills
     console.log(kills, 'he dead')
 
     document.getElementById('kills').innerText = killCount.toString()
+    document.getElementById('gold').innerText = gold.toString
 }
 
-function lootDay() {
-    let purse = 0
-    debugger
-    if (boss.health <= 0) {
-        boss.health = 0
-        purse = (boss.loot)
-    }
-    gold += purse
+function healHero(heroName) {
+    // let slateHealth = heroes[0].health
+    // let flintHealth = heroes[1].health
+    let foundHero = heroes.find(hero => hero.name == heroName)
+    if (foundHero.health < (foundHero.health * 1)) {
+        foundHero.health + (foundHero.health * 0.15)
+    } else if (foundHero.health >= foundHero.health)
+        return foundHero.health
 
-    console.log(purse)
-
-    document.getElementById('gold').innerText = gold.toString()
-
-
-    // console.log(purse, gold)
+    //     heroes[0].health = (heroes[0].health + (heroes[0] * .15)).toFixed(2)
+    // heroes[1].health = (heroes[1].health + (heroes[1] * .15)).toFixed(2)
 }
+
+// function lootDay() {
+//     let purse = 0
+
+//     if (boss.health <= 0) {
+//         boss.health = 0
+//         purse = (boss.loot)
+//     }
+//     gold += purse
+
+
+// debugger
+//     document.getElementById('gold').innerText = gold.toString()
+
+
+//     // console.log(purse, gold)
+// }
 
 
 function lvlBoss() {
